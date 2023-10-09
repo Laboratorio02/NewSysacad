@@ -62,12 +62,15 @@ namespace Formularios
                 btnInscripcionCurso.Visible = true;
                 btnConsultarHorario.Visible = true;
                 btnRealizarPagos.Visible = true;
+                labelUsaurio.Text = "Panel de estudiante";
             }
             else if (usuario.TipoUsuario.ToString() == "Administrador")
             {
                 btnRegistrarEstudiante.Visible = true;
                 btnGestionarCursos.Visible = true;
+                labelUsaurio.Text = "Panel de Administrador";
             }
+
         }
 
         private void button3_Click(object sender, EventArgs e)

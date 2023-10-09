@@ -16,7 +16,7 @@
     "Descripcion": "Turno mañana - editado",
     "CupoMaximo": 1,
     "CuposDisponibles": 0,
-    "Activo": true,
+    "Activo": false,
     "Dia": "Martes",
     "Horario": "Mañana",
     "Aula": "Aula206"

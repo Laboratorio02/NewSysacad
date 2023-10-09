@@ -71,13 +71,16 @@ namespace BibliotecaCLases.Controlador
            CalcularMontoTotal(conceptosPago);
             _pago = new Pago(_estudiante, conceptosPago, metodoPago, _totalIngresado);
 
-            if (_totalIngresado == _totalAPagar)
+            if (_totalIngresado >= _totalAPagar)
             {
                 _estudiante.EstadoDePago = "pagado";
             }
-          
+         
+
+
             Serializador.ActualizarJson(_estudiante, _estudiante.Legajo, _path);
             _pagos.Add(_pago);
+
 
         }
 

@@ -174,7 +174,7 @@ namespace BibliotecaCLases.Controlador
                 contrasena.Append(caracterAleatorio);
             }
 
-            return contrasena.ToString(); // Puedes omitir ToString() aquí
+            return contrasena.ToString(); 
         }
 
         /// <summary>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgregarCurso));
             textNombre = new TextBox();
             textCodigo = new TextBox();
             textDescripcion = new TextBox();
@@ -41,47 +42,47 @@
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(396, 96);
-            textNombre.Margin = new Padding(4);
+            textNombre.Location = new Point(79, 101);
+            textNombre.Margin = new Padding(3, 2, 3, 2);
             textNombre.Name = "textNombre";
             textNombre.PlaceholderText = "Nombre";
-            textNombre.Size = new Size(155, 31);
+            textNombre.Size = new Size(110, 23);
             textNombre.TabIndex = 0;
             textNombre.TextChanged += textBox1_TextChanged;
             // 
             // textCodigo
             // 
-            textCodigo.Location = new Point(396, 189);
-            textCodigo.Margin = new Padding(4);
+            textCodigo.Location = new Point(79, 149);
+            textCodigo.Margin = new Padding(3, 2, 3, 2);
             textCodigo.Name = "textCodigo";
             textCodigo.PlaceholderText = "Código";
-            textCodigo.Size = new Size(155, 31);
+            textCodigo.Size = new Size(110, 23);
             textCodigo.TabIndex = 1;
             // 
             // textDescripcion
             // 
-            textDescripcion.Location = new Point(396, 285);
-            textDescripcion.Margin = new Padding(4);
+            textDescripcion.Location = new Point(79, 202);
+            textDescripcion.Margin = new Padding(3, 2, 3, 2);
             textDescripcion.Name = "textDescripcion";
             textDescripcion.PlaceholderText = "Descripción";
-            textDescripcion.Size = new Size(155, 31);
+            textDescripcion.Size = new Size(110, 23);
             textDescripcion.TabIndex = 2;
             // 
             // textCupoMax
             // 
-            textCupoMax.Location = new Point(396, 376);
-            textCupoMax.Margin = new Padding(4);
+            textCupoMax.Location = new Point(79, 248);
+            textCupoMax.Margin = new Padding(3, 2, 3, 2);
             textCupoMax.Name = "textCupoMax";
             textCupoMax.PlaceholderText = "Cupo Máximo";
-            textCupoMax.Size = new Size(155, 31);
+            textCupoMax.Size = new Size(110, 23);
             textCupoMax.TabIndex = 3;
             // 
             // BtnAgregar
             // 
-            BtnAgregar.Location = new Point(409, 468);
-            BtnAgregar.Margin = new Padding(4);
+            BtnAgregar.Location = new Point(91, 285);
+            BtnAgregar.Margin = new Padding(3, 2, 3, 2);
             BtnAgregar.Name = "BtnAgregar";
-            BtnAgregar.Size = new Size(118, 36);
+            BtnAgregar.Size = new Size(83, 22);
             BtnAgregar.TabIndex = 4;
             BtnAgregar.Text = "Agregar";
             BtnAgregar.UseVisualStyleBackColor = true;
@@ -90,19 +91,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(410, 40);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(91, 35);
             label1.Name = "label1";
-            label1.Size = new Size(115, 25);
+            label1.Size = new Size(76, 15);
             label1.TabIndex = 5;
             label1.Text = "Nuevo Curso";
             // 
             // cBAula
             // 
             cBAula.FormattingEnabled = true;
-            cBAula.Location = new Point(659, 94);
+            cBAula.Location = new Point(226, 101);
+            cBAula.Margin = new Padding(2);
             cBAula.Name = "cBAula";
-            cBAula.Size = new Size(182, 33);
+            cBAula.Size = new Size(129, 23);
             cBAula.TabIndex = 6;
             cBAula.Text = "Aula";
             cBAula.KeyPress += cBAula_KeyPress;
@@ -110,9 +111,10 @@
             // cBHorarios
             // 
             cBHorarios.FormattingEnabled = true;
-            cBHorarios.Location = new Point(659, 187);
+            cBHorarios.Location = new Point(226, 149);
+            cBHorarios.Margin = new Padding(2);
             cBHorarios.Name = "cBHorarios";
-            cBHorarios.Size = new Size(182, 33);
+            cBHorarios.Size = new Size(129, 23);
             cBHorarios.TabIndex = 7;
             cBHorarios.Text = "Horarios";
             cBHorarios.KeyPress += cBHorarios_KeyPress;
@@ -120,18 +122,20 @@
             // cBDias
             // 
             cBDias.FormattingEnabled = true;
-            cBDias.Location = new Point(659, 285);
+            cBDias.Location = new Point(226, 202);
+            cBDias.Margin = new Padding(2);
             cBDias.Name = "cBDias";
-            cBDias.Size = new Size(182, 33);
+            cBDias.Size = new Size(129, 23);
             cBDias.TabIndex = 8;
             cBDias.Text = "Dias";
             cBDias.KeyPress += cBDias_KeyPress;
             // 
             // FrmAgregarCurso
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 562);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(808, 481);
             Controls.Add(cBDias);
             Controls.Add(cBHorarios);
             Controls.Add(cBAula);
@@ -141,7 +145,8 @@
             Controls.Add(textDescripcion);
             Controls.Add(textCodigo);
             Controls.Add(textNombre);
-            Margin = new Padding(4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmAgregarCurso";
             Text = "FrmAgregarCurso";
             Load += FrmAgregarCurso_Load;

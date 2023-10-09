@@ -63,7 +63,7 @@
     "EstadoDePago": "pendiente",
     "Nombre": "Alexis",
     "Apellido": "Aranda",
-    "Correo": "arandajaraalexis@gmail.com",
+    "Correo": "lexis@gmail.com",
     "Dni": "12345678",
     "Clave": "$2a$08$oiFjYp3xJkowTJdJQOd6MeMAfGDHpJoFb0s047nSAki2HE5C6WYdq",
     "TipoUsuario": 1,
@@ -77,7 +77,7 @@
     "EstadoDePago": "pendiente",
     "Nombre": "Alexis",
     "Apellido": "Aranda",
-    "Correo": "arandajaraale@gmail.com",
+    "Correo": "ajaraale@gmail.com",
     "Dni": "12345674",
     "Clave": "$2a$08$64p5X2Q5dxRqNk5KA/ZV8O9.7IOunM0krmYGDSsNdwq1zXV7WYEm6",
     "TipoUsuario": 1,
@@ -110,5 +110,19 @@
     "Clave": "$2a$08$gK8HWi283bRVynRGHs4HoucT2B1Qwo5Jk2MyyXfF0TeqOnP/dF5yi",
     "TipoUsuario": 1,
     "Legajo": 1011
+  },
+  "1012": {
+    "Debecambiar": false,
+    "Direccion": "calle 123",
+    "Telefono": "1162458176",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "Alexis",
+    "Apellido": "Aranda",
+    "Correo": "arandajaraalexis@gmail.com",
+    "Dni": "12345687",
+    "Clave": "$2a$08$krHjOWV6zqIxqj0kU7MCwuT/HgBPgmB5SeKnIzKmqI09iWb2qZXmq",
+    "TipoUsuario": 1,
+    "Legajo": 1012
   }
 }
