@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarCurso));
             label1 = new Label();
             textBoxNombre = new TextBox();
             textBoxCodigo = new TextBox();
@@ -39,15 +40,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(329, 84);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(182, 181, 181);
+            label1.Location = new Point(244, 123);
             label1.Name = "label1";
-            label1.Size = new Size(37, 15);
+            label1.Size = new Size(50, 21);
             label1.TabIndex = 0;
             label1.Text = "Editar";
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(24, 173);
+            textBoxNombre.BackColor = Color.Goldenrod;
+            textBoxNombre.Location = new Point(23, 194);
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.Size = new Size(100, 23);
             textBoxNombre.TabIndex = 1;
@@ -55,7 +60,8 @@
             // 
             // textBoxCodigo
             // 
-            textBoxCodigo.Location = new Point(168, 173);
+            textBoxCodigo.BackColor = Color.Goldenrod;
+            textBoxCodigo.Location = new Point(141, 194);
             textBoxCodigo.Name = "textBoxCodigo";
             textBoxCodigo.Size = new Size(100, 23);
             textBoxCodigo.TabIndex = 2;
@@ -63,7 +69,8 @@
             // 
             // textBoxDescripcion
             // 
-            textBoxDescripcion.Location = new Point(304, 173);
+            textBoxDescripcion.BackColor = Color.Goldenrod;
+            textBoxDescripcion.Location = new Point(257, 194);
             textBoxDescripcion.Name = "textBoxDescripcion";
             textBoxDescripcion.Size = new Size(117, 23);
             textBoxDescripcion.TabIndex = 3;
@@ -71,7 +78,8 @@
             // 
             // textBoxCupoMax
             // 
-            textBoxCupoMax.Location = new Point(467, 173);
+            textBoxCupoMax.BackColor = Color.Goldenrod;
+            textBoxCupoMax.Location = new Point(391, 194);
             textBoxCupoMax.Name = "textBoxCupoMax";
             textBoxCupoMax.Size = new Size(100, 23);
             textBoxCupoMax.TabIndex = 4;
@@ -79,18 +87,21 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(304, 256);
+            btnAceptar.BackColor = Color.FromArgb(128, 255, 128);
+            btnAceptar.Cursor = Cursors.Hand;
+            btnAceptar.Location = new Point(219, 331);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 5;
             btnAceptar.Text = "Aceptar";
-            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.UseVisualStyleBackColor = false;
             btnAceptar.Click += btnAceptar_Click;
             // 
             // FrmEditarCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(btnAceptar);
             Controls.Add(textBoxCupoMax);
@@ -98,6 +109,8 @@
             Controls.Add(textBoxCodigo);
             Controls.Add(textBoxNombre);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimizeBox = false;
             Name = "FrmEditarCurso";
             Text = "FrmEditarCurso";
             ResumeLayout(false);

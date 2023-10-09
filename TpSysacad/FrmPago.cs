@@ -144,7 +144,7 @@ namespace Formularios
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            string metodoSeleccionado = CmboxMetodoPago.SelectedItem?.ToString(); 
+            string metodoSeleccionado = CmboxMetodoPago.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(metodoSeleccionado))
             {
@@ -183,7 +183,7 @@ namespace Formularios
                     _gestorPago.RegistrarPago(_usuario, conceptoPagos, metodoPagoSeleccionado);
                     MessageBox.Show(_gestorPago.GenerarDatosTransferenciaBancaria());
                 }
-              
+
             }
             else
             {

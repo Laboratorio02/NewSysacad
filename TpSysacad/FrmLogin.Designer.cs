@@ -86,7 +86,7 @@
             textUsuario.BackColor = Color.FromArgb(249, 250, 251);
             textUsuario.BorderStyle = BorderStyle.None;
             textUsuario.ForeColor = Color.Black;
-            textUsuario.Location = new Point(103, 187);
+            textUsuario.Location = new Point(103, 189);
             textUsuario.Name = "textUsuario";
             textUsuario.PlaceholderText = "Usuario";
             textUsuario.Size = new Size(247, 16);
@@ -149,9 +149,9 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmLogin";
             Text = "Sysacad Login";
-            WindowState = FormWindowState.Minimized;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -79,18 +79,23 @@
             // 
             // BtnAgregar
             // 
+            BtnAgregar.BackColor = Color.Lime;
             BtnAgregar.Location = new Point(91, 285);
             BtnAgregar.Margin = new Padding(3, 2, 3, 2);
             BtnAgregar.Name = "BtnAgregar";
             BtnAgregar.Size = new Size(83, 22);
             BtnAgregar.TabIndex = 4;
             BtnAgregar.Text = "Agregar";
-            BtnAgregar.UseVisualStyleBackColor = true;
+            BtnAgregar.UseVisualStyleBackColor = false;
             BtnAgregar.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Cursor = Cursors.Hand;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.ForeColor = Color.Khaki;
             label1.Location = new Point(91, 35);
             label1.Name = "label1";
             label1.Size = new Size(76, 15);
@@ -147,6 +152,7 @@
             Controls.Add(textNombre);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "FrmAgregarCurso";
             Text = "FrmAgregarCurso";
             Load += FrmAgregarCurso_Load;

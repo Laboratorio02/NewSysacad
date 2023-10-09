@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultarHorario));
             dataGridViewHorario = new DataGridView();
             dias = new DataGridViewTextBoxColumn();
             turnoManiana = new DataGridViewTextBoxColumn();
@@ -43,15 +45,24 @@
             // dataGridViewHorario
             // 
             dataGridViewHorario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewHorario.BackgroundColor = Color.Gray;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 64, 64);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewHorario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewHorario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewHorario.Columns.AddRange(new DataGridViewColumn[] { dias, turnoManiana, turnoTarde, turnoNoche });
             dataGridViewHorario.GridColor = SystemColors.ControlDarkDark;
-            dataGridViewHorario.Location = new Point(30, 76);
+            dataGridViewHorario.Location = new Point(84, 84);
             dataGridViewHorario.Margin = new Padding(3, 2, 3, 2);
             dataGridViewHorario.Name = "dataGridViewHorario";
             dataGridViewHorario.RowHeadersWidth = 51;
             dataGridViewHorario.RowTemplate.Height = 29;
-            dataGridViewHorario.Size = new Size(604, 190);
+            dataGridViewHorario.Size = new Size(671, 301);
             dataGridViewHorario.TabIndex = 0;
             dataGridViewHorario.CellContentClick += dataGridViewHorario_CellContentClick;
             // 
@@ -90,7 +101,7 @@
             // labelHorario
             // 
             labelHorario.AutoSize = true;
-            labelHorario.Location = new Point(276, 38);
+            labelHorario.Location = new Point(403, 41);
             labelHorario.Name = "labelHorario";
             labelHorario.Size = new Size(97, 15);
             labelHorario.TabIndex = 1;
@@ -108,7 +119,9 @@
             // labelHorarioVacio
             // 
             labelHorarioVacio.AutoSize = true;
+            labelHorarioVacio.BackColor = Color.FromArgb(128, 255, 255);
             labelHorarioVacio.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelHorarioVacio.ForeColor = Color.Black;
             labelHorarioVacio.Location = new Point(89, 164);
             labelHorarioVacio.Name = "labelHorarioVacio";
             labelHorarioVacio.Size = new Size(482, 25);
@@ -119,26 +132,31 @@
             // 
             // btnVolver
             // 
+            btnVolver.BackColor = Color.Orange;
+            btnVolver.ForeColor = Color.Black;
             btnVolver.Location = new Point(262, 303);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(127, 23);
             btnVolver.TabIndex = 12;
             btnVolver.TabStop = false;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
             // FormConsultarHorario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(808, 481);
             Controls.Add(btnVolver);
             Controls.Add(labelHorarioVacio);
             Controls.Add(label1);
             Controls.Add(labelHorario);
             Controls.Add(dataGridViewHorario);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MinimizeBox = false;
             Name = "FormConsultarHorario";
             Text = "FormConsultarHorario";
             Load += FormConsultarHorario_Load;

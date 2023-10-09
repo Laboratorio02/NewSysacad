@@ -57,14 +57,16 @@ namespace Formularios
 
         private void BtnAdmin_Click(object sender, EventArgs e)
         {
-            textUsuario.Text = "011";
-            textContraseña.Text = "11";
+            textUsuario.Text = "44000000";
+            textContraseña.Text = "44000000";
         }
 
         private void BtnEstudiante_Click(object sender, EventArgs e)
         {
-            textUsuario.Text = "123";
-            textContraseña.Text = "i43Ia%Jjv";
+            textUsuario.Text = "45000000";
+            textContraseña.Text = "Grz>3w-xZ";
         }
+
+
     }
 }

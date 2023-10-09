@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPago));
             label1 = new Label();
             dtgvConceptoPago = new DataGridView();
             Nombre = new DataGridViewTextBoxColumn();
@@ -47,6 +49,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Location = new Point(123, 27);
             label1.Name = "label1";
             label1.Size = new Size(105, 15);
@@ -55,9 +58,18 @@
             // 
             // dtgvConceptoPago
             // 
+            dtgvConceptoPago.BackgroundColor = SystemColors.ActiveCaption;
             dtgvConceptoPago.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvConceptoPago.Columns.AddRange(new DataGridViewColumn[] { Nombre, Monto, IngresarMonton });
-            dtgvConceptoPago.Location = new Point(12, 79);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Cyan;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dtgvConceptoPago.DefaultCellStyle = dataGridViewCellStyle1;
+            dtgvConceptoPago.Location = new Point(95, 79);
             dtgvConceptoPago.Name = "dtgvConceptoPago";
             dtgvConceptoPago.RowTemplate.Height = 25;
             dtgvConceptoPago.Size = new Size(344, 150);
@@ -83,6 +95,7 @@
             // 
             // CmboxMetodoPago
             // 
+            CmboxMetodoPago.BackColor = Color.Lime;
             CmboxMetodoPago.Location = new Point(64, 254);
             CmboxMetodoPago.Name = "CmboxMetodoPago";
             CmboxMetodoPago.Size = new Size(184, 23);
@@ -124,6 +137,9 @@
             // 
             // CmboxCuota
             // 
+            CmboxCuota.BackColor = Color.Peru;
+            CmboxCuota.FlatStyle = FlatStyle.Flat;
+            CmboxCuota.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             CmboxCuota.FormattingEnabled = true;
             CmboxCuota.Location = new Point(410, 254);
             CmboxCuota.Name = "CmboxCuota";
@@ -134,30 +150,34 @@
             // 
             // btnPagar
             // 
+            btnPagar.BackColor = Color.Lime;
+            btnPagar.ForeColor = SystemColors.ControlText;
             btnPagar.Location = new Point(565, 303);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(75, 23);
             btnPagar.TabIndex = 11;
             btnPagar.Text = "Pagar";
-            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.UseVisualStyleBackColor = false;
             btnPagar.Click += btnPagar_Click;
             // 
             // btnVolver
             // 
+            btnVolver.BackColor = Color.Yellow;
             btnVolver.Location = new Point(30, 303);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(127, 23);
             btnVolver.TabIndex = 13;
             btnVolver.TabStop = false;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
             // FrmPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(808, 481);
             Controls.Add(btnVolver);
             Controls.Add(btnPagar);
             Controls.Add(CmboxCuota);
@@ -168,7 +188,9 @@
             Controls.Add(CmboxMetodoPago);
             Controls.Add(dtgvConceptoPago);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MinimizeBox = false;
             Name = "FrmPago";
             Text = "FrmPago";
             Load += FrmPago_Load;

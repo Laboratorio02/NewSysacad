@@ -123,13 +123,14 @@
             // 
             // btnInscripcion
             // 
+            btnInscripcion.BackColor = Color.FromArgb(128, 255, 128);
             btnInscripcion.Location = new Point(93, 337);
             btnInscripcion.Margin = new Padding(2);
             btnInscripcion.Name = "btnInscripcion";
             btnInscripcion.Size = new Size(127, 26);
             btnInscripcion.TabIndex = 7;
             btnInscripcion.Text = "inscripcion";
-            btnInscripcion.UseVisualStyleBackColor = true;
+            btnInscripcion.UseVisualStyleBackColor = false;
             btnInscripcion.Click += btnInscripcion_Click;
             // 
             // BtnEditarCursos
@@ -158,7 +159,7 @@
             // BtnAgregarCurso
             // 
             BtnAgregarCurso.BackColor = Color.FromArgb(128, 255, 128);
-            BtnAgregarCurso.Location = new Point(93, 337);
+            BtnAgregarCurso.Location = new Point(93, 339);
             BtnAgregarCurso.Name = "BtnAgregarCurso";
             BtnAgregarCurso.Size = new Size(127, 23);
             BtnAgregarCurso.TabIndex = 10;
@@ -191,7 +192,9 @@
             Controls.Add(btnInscripcion);
             Controls.Add(label1);
             Controls.Add(dataGridViewCursos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MinimizeBox = false;
             Name = "FrmGestionarCursos";
             Text = "FrmGestionarCurso";
             Load += FrmGestionarCurso_Load;

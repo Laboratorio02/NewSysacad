@@ -170,6 +170,7 @@
             Controls.Add(textApellido);
             Controls.Add(textNombre);
             Controls.Add(label1);
+            MinimizeBox = false;
             Name = "FrmRegistroEstudiante";
             Text = "FrmRegistroEstudiante";
             ResumeLayout(false);
