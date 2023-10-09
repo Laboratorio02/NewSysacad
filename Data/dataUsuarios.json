@@ -31,7 +31,9 @@
     "Debecambiar": false,
     "Direccion": "calle123",
     "Telefono": "1165784259",
-    "CursosInscriptos": [],
+    "CursosInscriptos": [
+      "2"
+    ],
     "EstadoDePago": "pendiente",
     "Nombre": "Fran",
     "Apellido": "Sanchez",
