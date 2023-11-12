@@ -46,6 +46,7 @@ namespace BibliotecaCLases.Controlador
         /// <returns>bool</returns>
         public bool AutenticarUsuario(string dni, string contrasena)
         {
+            //comentario
             _usuario = dictUsuarios.FirstOrDefault(pair => pair.Value.Dni == dni).Value;
 
             if (_usuario != null)
