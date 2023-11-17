@@ -42,5 +42,19 @@
     "Clave": "$2a$08$eoumK4ZTPNXusAQaElTdDOJdA3p0wJHm.Acf0sU.7ztiFhAg7o48u",
     "TipoUsuario": 1,
     "Legajo": 1002
+  },
+  "1006": {
+    "Debecambiar": false,
+    "Direccion": "calle 123",
+    "Telefono": "1162458176",
+    "CursosInscriptos": [],
+    "EstadoDePago": "pendiente",
+    "Nombre": "alexis",
+    "Apellido": "arnada",
+    "Correo": "arandajaraalexis@gmail.com",
+    "Dni": "12340078",
+    "Clave": "$2a$08$MWWtxkNq1GD1wBO6Q2LhsO.HN4WTgOG8f07cS0siBC1qz6tb1Wwgi",
+    "TipoUsuario": 1,
+    "Legajo": 1006
   }
 }
