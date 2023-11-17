@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
-
+using System.Configuration;
+using System;
 namespace BibliotecaCLases.Modelo
 {
     public static class Email
@@ -20,6 +21,8 @@ namespace BibliotecaCLases.Modelo
         /// <param name="email"></param>
         public static string SendMessageSmtp(string email, string contraseña, string nombre, string apellido)
         {
+            string host = ConfigurationManager.AppSettings["mailgunHost"]!;
+            string password = ConfigurationManager.AppSettings["mailgunPassword"]!;
             MimeMessage mail = new MimeMessage();
             mail.From.Add(new MailboxAddress("Sistema Sysacad", "foo@sandbox54c0a3c56b0042a2801b8f6c5cebe46a.mailgun.org"));
             mail.To.Add(new MailboxAddress($"{apellido},{nombre}", email));
