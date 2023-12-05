@@ -50,9 +50,10 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, PromedioRequerido, Correlatividades, CreditosRequeridos });
-            dataGridView1.Location = new Point(30, 147);
+            dataGridView1.Location = new Point(70, 147);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -95,7 +96,8 @@
             // 
             // lblListaVacia
             // 
-            lblListaVacia.Location = new Point(90, 106);
+            lblListaVacia.BackColor = Color.FromArgb(68, 149, 255);
+            lblListaVacia.Location = new Point(103, 183);
             lblListaVacia.Name = "lblListaVacia";
             lblListaVacia.Size = new Size(475, 88);
             lblListaVacia.TabIndex = 1;
@@ -105,42 +107,46 @@
             // 
             // btnSalir
             // 
+            btnSalir.BackColor = Color.FromArgb(68, 149, 255);
             btnSalir.Location = new Point(12, 387);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 2;
             btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // btnEditarPromedio
             // 
+            btnEditarPromedio.BackColor = Color.FromArgb(68, 149, 255);
             btnEditarPromedio.Location = new Point(70, 327);
             btnEditarPromedio.Name = "btnEditarPromedio";
             btnEditarPromedio.Size = new Size(122, 23);
             btnEditarPromedio.TabIndex = 3;
             btnEditarPromedio.Text = "Editar Promedio";
-            btnEditarPromedio.UseVisualStyleBackColor = true;
+            btnEditarPromedio.UseVisualStyleBackColor = false;
             btnEditarPromedio.Click += btnEditarPromedio_Click;
             // 
             // btnEditarCreditos
             // 
-            btnEditarCreditos.Location = new Point(282, 327);
+            btnEditarCreditos.BackColor = Color.FromArgb(68, 149, 255);
+            btnEditarCreditos.Location = new Point(282, 342);
             btnEditarCreditos.Name = "btnEditarCreditos";
             btnEditarCreditos.Size = new Size(137, 23);
             btnEditarCreditos.TabIndex = 4;
             btnEditarCreditos.Text = "Editar Creditos";
-            btnEditarCreditos.UseVisualStyleBackColor = true;
+            btnEditarCreditos.UseVisualStyleBackColor = false;
             btnEditarCreditos.Click += btnEditarCreditos_Click_1;
             // 
             // btnEditarCorrelativas
             // 
+            btnEditarCorrelativas.BackColor = Color.FromArgb(68, 149, 255);
             btnEditarCorrelativas.Location = new Point(498, 327);
             btnEditarCorrelativas.Name = "btnEditarCorrelativas";
             btnEditarCorrelativas.Size = new Size(136, 23);
             btnEditarCorrelativas.TabIndex = 5;
             btnEditarCorrelativas.Text = "Editar Correlativas";
-            btnEditarCorrelativas.UseVisualStyleBackColor = true;
+            btnEditarCorrelativas.UseVisualStyleBackColor = false;
             btnEditarCorrelativas.Click += btnEditarCorrelativas_Click_1;
             // 
             // txtNuevoPromedio
@@ -153,12 +159,13 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.BackColor = Color.FromArgb(68, 149, 255);
             btnGuardar.Location = new Point(282, 303);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(137, 23);
             btnGuardar.TabIndex = 8;
             btnGuardar.Text = "Guardar Promedio";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // txtNuevoCredito
@@ -171,28 +178,31 @@
             // 
             // btnGuardarCredito
             // 
+            btnGuardarCredito.BackColor = Color.FromArgb(68, 149, 255);
             btnGuardarCredito.Location = new Point(282, 303);
             btnGuardarCredito.Name = "btnGuardarCredito";
             btnGuardarCredito.Size = new Size(131, 23);
             btnGuardarCredito.TabIndex = 10;
             btnGuardarCredito.Text = "Guardar Credito";
-            btnGuardarCredito.UseVisualStyleBackColor = true;
+            btnGuardarCredito.UseVisualStyleBackColor = false;
             btnGuardarCredito.Click += btnGuardarCredito_Click;
             // 
             // btnGuardarCorrelativa
             // 
-            btnGuardarCorrelativa.Location = new Point(282, 356);
+            btnGuardarCorrelativa.BackColor = Color.FromArgb(68, 149, 255);
+            btnGuardarCorrelativa.Location = new Point(282, 371);
             btnGuardarCorrelativa.Name = "btnGuardarCorrelativa";
             btnGuardarCorrelativa.Size = new Size(137, 23);
             btnGuardarCorrelativa.TabIndex = 11;
             btnGuardarCorrelativa.Text = "Guardar Correlativa";
-            btnGuardarCorrelativa.UseVisualStyleBackColor = true;
+            btnGuardarCorrelativa.UseVisualStyleBackColor = false;
             btnGuardarCorrelativa.Click += btnGuardarCorrelativa_Click;
             // 
             // FrmGestionarRequisitosAcademics
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(btnGuardarCorrelativa);
             Controls.Add(btnGuardarCredito);
@@ -205,6 +215,7 @@
             Controls.Add(btnSalir);
             Controls.Add(lblListaVacia);
             Controls.Add(dataGridView1);
+            ForeColor = SystemColors.ControlLightLight;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;

@@ -63,6 +63,7 @@ namespace Formularios
             btnGestionarRequisitos.Visible = false;
             btnGestionarProfesor.Visible = false;
             bttnGenerarReporte.Visible = false;
+            btnVerCursos.Visible = false;
             if (usuario.TipoUsuario.ToString() == "Estudiante")
             {
                 btnInscripcionCurso.Visible = true;
@@ -71,13 +72,17 @@ namespace Formularios
 
             }
             else if (usuario.TipoUsuario.ToString() == "Administrador")
-            {
+            {   
                 btnRegistrarEstudiante.Visible = true;
                 btnGestionarCursos.Visible = true;
                 btnGestionarListasEspera.Visible = true;
                 btnGestionarRequisitos.Visible = true;
                 btnGestionarProfesor.Visible = true;
                 bttnGenerarReporte.Visible = true;
+            }
+            else if (usuario.TipoUsuario.ToString() == "Profesor")
+            {
+                btnVerCursos.Visible = true;
             }
         }
 

@@ -111,16 +111,17 @@
             // label
             // 
             label.BackColor = Color.FromArgb(68, 149, 255);
-            label.Location = new Point(129, 121);
+            label.Location = new Point(180, 150);
             label.Name = "label";
             label.Size = new Size(264, 83);
             label.TabIndex = 8;
             label.Text = "label";
+            label.Visible = false;
             // 
             // lblAvisoListavacia
             // 
             lblAvisoListavacia.BackColor = Color.FromArgb(68, 149, 255);
-            lblAvisoListavacia.Location = new Point(129, 121);
+            lblAvisoListavacia.Location = new Point(180, 150);
             lblAvisoListavacia.Name = "lblAvisoListavacia";
             lblAvisoListavacia.Size = new Size(477, 121);
             lblAvisoListavacia.TabIndex = 9;
