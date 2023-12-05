@@ -182,7 +182,7 @@ namespace Formularios
                 btnIngresarNota.Visible = false;
                 dtgCrusos_alumnos.Visible = false;
                 cbxAsistencia.Visible = true;
-                btnGuardarAsistencia.Visible=true;
+                btnGuardarAsistencia.Visible = true;
 
 
             }

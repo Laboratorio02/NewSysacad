@@ -110,6 +110,7 @@
             Controls.Add(textBoxNombre);
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmEditarCurso";
             Text = "FrmEditarCurso";

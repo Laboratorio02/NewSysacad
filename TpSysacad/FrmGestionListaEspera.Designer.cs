@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionListaEspera));
             dtgvListaEspera = new DataGridView();
             btnVerlista = new Button();
             btnEliminarEstudiante = new Button();
@@ -43,68 +44,74 @@
             // 
             dtgvListaEspera.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgvListaEspera.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvListaEspera.Location = new Point(81, 110);
+            dtgvListaEspera.Location = new Point(62, 121);
             dtgvListaEspera.Name = "dtgvListaEspera";
             dtgvListaEspera.RowHeadersWidth = 62;
             dtgvListaEspera.RowTemplate.Height = 25;
             dtgvListaEspera.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvListaEspera.Size = new Size(545, 163);
+            dtgvListaEspera.Size = new Size(675, 163);
             dtgvListaEspera.TabIndex = 2;
             dtgvListaEspera.CellClick += dtgvListaEspera_CellClick;
             // 
             // btnVerlista
             // 
-            btnVerlista.Location = new Point(274, 279);
+            btnVerlista.BackColor = Color.FromArgb(255, 255, 128);
+            btnVerlista.Location = new Point(298, 304);
             btnVerlista.Name = "btnVerlista";
             btnVerlista.Size = new Size(188, 23);
             btnVerlista.TabIndex = 3;
             btnVerlista.Text = "Consultar Lista de Espera";
-            btnVerlista.UseVisualStyleBackColor = true;
+            btnVerlista.UseVisualStyleBackColor = false;
             btnVerlista.Click += btnVerlista_Click;
             // 
             // btnEliminarEstudiante
             // 
-            btnEliminarEstudiante.Location = new Point(468, 279);
+            btnEliminarEstudiante.BackColor = Color.Brown;
+            btnEliminarEstudiante.Location = new Point(579, 304);
             btnEliminarEstudiante.Name = "btnEliminarEstudiante";
             btnEliminarEstudiante.Size = new Size(158, 23);
             btnEliminarEstudiante.TabIndex = 4;
             btnEliminarEstudiante.Text = "Eliminar Estudiante";
-            btnEliminarEstudiante.UseVisualStyleBackColor = true;
+            btnEliminarEstudiante.UseVisualStyleBackColor = false;
             btnEliminarEstudiante.Click += btnEliminarEstudiante_Click_1;
             // 
             // btnAgregarEstudiante
             // 
-            btnAgregarEstudiante.Location = new Point(81, 279);
+            btnAgregarEstudiante.BackColor = Color.FromArgb(128, 255, 128);
+            btnAgregarEstudiante.Location = new Point(62, 304);
             btnAgregarEstudiante.Name = "btnAgregarEstudiante";
             btnAgregarEstudiante.Size = new Size(177, 23);
             btnAgregarEstudiante.TabIndex = 5;
             btnAgregarEstudiante.Text = "Agregar Estudiante";
-            btnAgregarEstudiante.UseVisualStyleBackColor = true;
+            btnAgregarEstudiante.UseVisualStyleBackColor = false;
             btnAgregarEstudiante.Click += btnAgregarEstudiante_Click_1;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(318, 279);
+            btnAgregar.BackColor = Color.FromArgb(192, 255, 192);
+            btnAgregar.Location = new Point(309, 370);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(102, 23);
             btnAgregar.TabIndex = 6;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(12, 370);
+            btnSalir.BackColor = Color.FromArgb(68, 149, 255);
+            btnSalir.Location = new Point(38, 370);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 7;
             btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // label
             // 
-            label.Location = new Point(185, 24);
+            label.BackColor = Color.FromArgb(68, 149, 255);
+            label.Location = new Point(129, 121);
             label.Name = "label";
             label.Size = new Size(264, 83);
             label.TabIndex = 8;
@@ -112,7 +119,8 @@
             // 
             // lblAvisoListavacia
             // 
-            lblAvisoListavacia.Location = new Point(114, 127);
+            lblAvisoListavacia.BackColor = Color.FromArgb(68, 149, 255);
+            lblAvisoListavacia.Location = new Point(129, 121);
             lblAvisoListavacia.Name = "lblAvisoListavacia";
             lblAvisoListavacia.Size = new Size(477, 121);
             lblAvisoListavacia.TabIndex = 9;
@@ -122,7 +130,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 421);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(800, 447);
             Controls.Add(lblAvisoListavacia);
             Controls.Add(label);
             Controls.Add(btnSalir);
@@ -131,6 +140,9 @@
             Controls.Add(btnEliminarEstudiante);
             Controls.Add(btnVerlista);
             Controls.Add(dtgvListaEspera);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmGestionListaEspera";
             Text = "s";
             ((System.ComponentModel.ISupportInitialize)dtgvListaEspera).EndInit();

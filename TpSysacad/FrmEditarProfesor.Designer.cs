@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarProfesor));
             btnSalir = new Button();
             btnGuardarProfesor = new Button();
             textBoxNombre = new TextBox();
@@ -41,69 +42,71 @@
             // 
             // btnSalir
             // 
+            btnSalir.BackColor = Color.FromArgb(68, 149, 255);
             btnSalir.Location = new Point(12, 398);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 0;
             btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // btnGuardarProfesor
             // 
-            btnGuardarProfesor.Location = new Point(280, 336);
+            btnGuardarProfesor.BackColor = Color.FromArgb(68, 149, 255);
+            btnGuardarProfesor.Location = new Point(174, 327);
             btnGuardarProfesor.Name = "btnGuardarProfesor";
             btnGuardarProfesor.Size = new Size(144, 23);
             btnGuardarProfesor.TabIndex = 1;
             btnGuardarProfesor.Text = "Guardar Profesor";
-            btnGuardarProfesor.UseVisualStyleBackColor = true;
+            btnGuardarProfesor.UseVisualStyleBackColor = false;
             btnGuardarProfesor.Click += btnGuardarProfesor_Click;
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(101, 136);
+            textBoxNombre.Location = new Point(30, 136);
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.Size = new Size(100, 23);
             textBoxNombre.TabIndex = 2;
             // 
             // textBoxApellido
             // 
-            textBoxApellido.Location = new Point(101, 241);
+            textBoxApellido.Location = new Point(30, 217);
             textBoxApellido.Name = "textBoxApellido";
             textBoxApellido.Size = new Size(100, 23);
             textBoxApellido.TabIndex = 3;
             // 
             // textBoxDni
             // 
-            textBoxDni.Location = new Point(280, 136);
+            textBoxDni.Location = new Point(174, 136);
             textBoxDni.Name = "textBoxDni";
             textBoxDni.Size = new Size(100, 23);
             textBoxDni.TabIndex = 4;
             // 
             // textBoxDireccion
             // 
-            textBoxDireccion.Location = new Point(270, 241);
+            textBoxDireccion.Location = new Point(174, 217);
             textBoxDireccion.Name = "textBoxDireccion";
             textBoxDireccion.Size = new Size(100, 23);
             textBoxDireccion.TabIndex = 5;
             // 
             // textBoxCorreo
             // 
-            textBoxCorreo.Location = new Point(488, 136);
+            textBoxCorreo.Location = new Point(292, 136);
             textBoxCorreo.Name = "textBoxCorreo";
             textBoxCorreo.Size = new Size(100, 23);
             textBoxCorreo.TabIndex = 6;
             // 
             // textBoxTelefono
             // 
-            textBoxTelefono.Location = new Point(488, 241);
+            textBoxTelefono.Location = new Point(292, 217);
             textBoxTelefono.Name = "textBoxTelefono";
             textBoxTelefono.Size = new Size(100, 23);
             textBoxTelefono.TabIndex = 7;
             // 
             // txtEspecializacion
             // 
-            txtEspecializacion.Location = new Point(617, 193);
+            txtEspecializacion.Location = new Point(391, 175);
             txtEspecializacion.Name = "txtEspecializacion";
             txtEspecializacion.PlaceholderText = "Especializacion";
             txtEspecializacion.Size = new Size(100, 23);
@@ -113,6 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(txtEspecializacion);
             Controls.Add(textBoxTelefono);
@@ -123,6 +127,9 @@
             Controls.Add(textBoxNombre);
             Controls.Add(btnGuardarProfesor);
             Controls.Add(btnSalir);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmEditarProfesor";
             Text = "FrmEditarProfesor";
             ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             label1 = new Label();
             label2 = new Label();
             BtnLogin = new Button();
@@ -41,87 +42,105 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(150, 9);
+            label1.BackColor = Color.FromArgb(68, 149, 255);
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(104, 33);
             label1.Name = "label1";
-            label1.Size = new Size(417, 37);
+            label1.Size = new Size(324, 30);
             label1.TabIndex = 0;
             label1.Text = "Universidad Tecnológica Nacional";
             label1.TextAlign = ContentAlignment.TopCenter;
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(68, 149, 255);
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.HotTrack;
-            label2.Location = new Point(235, 56);
+            label2.ForeColor = SystemColors.ControlLight;
+            label2.Location = new Point(128, 101);
             label2.Name = "label2";
             label2.Size = new Size(217, 21);
             label2.TabIndex = 1;
             label2.Text = "Sistema Académico SYSACAD";
             label2.TextAlign = ContentAlignment.TopCenter;
+            label2.Click += label2_Click;
             // 
             // BtnLogin
             // 
-            BtnLogin.Location = new Point(273, 301);
+            BtnLogin.BackColor = Color.FromArgb(68, 149, 255);
+            BtnLogin.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnLogin.Cursor = Cursors.Hand;
+            BtnLogin.FlatAppearance.BorderSize = 0;
+            BtnLogin.FlatStyle = FlatStyle.Flat;
+            BtnLogin.Location = new Point(104, 313);
             BtnLogin.Name = "BtnLogin";
-            BtnLogin.Size = new Size(75, 23);
+            BtnLogin.Size = new Size(241, 23);
             BtnLogin.TabIndex = 2;
             BtnLogin.Text = "Login";
-            BtnLogin.UseVisualStyleBackColor = true;
+            BtnLogin.UseVisualStyleBackColor = false;
             BtnLogin.Click += BtnLogin_Click;
             // 
             // textUsuario
             // 
-            textUsuario.Location = new Point(260, 154);
+            textUsuario.BorderStyle = BorderStyle.None;
+            textUsuario.Location = new Point(104, 180);
             textUsuario.Name = "textUsuario";
             textUsuario.PlaceholderText = "Usuario";
-            textUsuario.Size = new Size(100, 23);
+            textUsuario.Size = new Size(241, 16);
             textUsuario.TabIndex = 3;
             // 
             // textContraseña
             // 
-            textContraseña.Location = new Point(260, 222);
+            textContraseña.BorderStyle = BorderStyle.None;
+            textContraseña.Location = new Point(104, 235);
             textContraseña.Name = "textContraseña";
             textContraseña.PasswordChar = '*';
             textContraseña.PlaceholderText = "Contraseña";
-            textContraseña.Size = new Size(100, 23);
+            textContraseña.Size = new Size(241, 16);
             textContraseña.TabIndex = 4;
             // 
             // BtnEstudiante
             // 
-            BtnEstudiante.Location = new Point(43, 353);
+            BtnEstudiante.BackColor = Color.FromArgb(68, 149, 255);
+            BtnEstudiante.Cursor = Cursors.Hand;
+            BtnEstudiante.Location = new Point(12, 386);
             BtnEstudiante.Name = "BtnEstudiante";
             BtnEstudiante.Size = new Size(104, 23);
             BtnEstudiante.TabIndex = 5;
             BtnEstudiante.Text = "Estudiante";
-            BtnEstudiante.UseVisualStyleBackColor = true;
+            BtnEstudiante.UseVisualStyleBackColor = false;
             BtnEstudiante.Click += BtnEstudiante_Click_1;
             // 
             // BtnAdministrador
             // 
-            BtnAdministrador.Location = new Point(43, 301);
+            BtnAdministrador.BackColor = Color.FromArgb(68, 149, 255);
+            BtnAdministrador.Cursor = Cursors.Hand;
+            BtnAdministrador.Location = new Point(12, 357);
             BtnAdministrador.Name = "BtnAdministrador";
             BtnAdministrador.Size = new Size(104, 23);
             BtnAdministrador.TabIndex = 6;
             BtnAdministrador.Text = "Administrador";
-            BtnAdministrador.UseVisualStyleBackColor = true;
+            BtnAdministrador.UseVisualStyleBackColor = false;
             BtnAdministrador.Click += BtnAdministrador_Click;
             // 
             // btnProfesor
             // 
-            btnProfesor.Location = new Point(43, 401);
+            btnProfesor.BackColor = Color.FromArgb(68, 149, 255);
+            btnProfesor.Cursor = Cursors.Hand;
+            btnProfesor.Location = new Point(12, 415);
             btnProfesor.Name = "btnProfesor";
             btnProfesor.Size = new Size(104, 23);
             btnProfesor.TabIndex = 7;
             btnProfesor.Text = "Profesor";
-            btnProfesor.UseVisualStyleBackColor = true;
+            btnProfesor.UseVisualStyleBackColor = false;
             btnProfesor.Click += btnProfesor_Click;
             // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Login;
             ClientSize = new Size(800, 450);
             Controls.Add(btnProfesor);
             Controls.Add(BtnAdministrador);
@@ -131,6 +150,9 @@
             Controls.Add(BtnLogin);
             Controls.Add(label2);
             Controls.Add(label1);
+            ForeColor = SystemColors.ButtonFace;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmLogin";
             Text = "Sysacad Login";

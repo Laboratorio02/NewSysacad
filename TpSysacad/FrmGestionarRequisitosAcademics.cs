@@ -215,5 +215,10 @@ namespace Formularios
             FormPanelUsuario formPrincipal = new FormPanelUsuario(_usuario);
             formPrincipal.Show();
         }
+
+        private void lblListaVacia_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

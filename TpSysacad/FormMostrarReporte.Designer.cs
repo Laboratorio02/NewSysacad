@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMostrarReporte));
             lblMuestraPDF = new Label();
             btnGenerarPDF = new Button();
             SuspendLayout();
@@ -35,29 +36,37 @@
             // lblMuestraPDF
             // 
             lblMuestraPDF.AutoSize = true;
-            lblMuestraPDF.Location = new Point(195, 36);
+            lblMuestraPDF.Location = new Point(133, 38);
+            lblMuestraPDF.Margin = new Padding(2, 0, 2, 0);
             lblMuestraPDF.Name = "lblMuestraPDF";
-            lblMuestraPDF.Size = new Size(46, 25);
+            lblMuestraPDF.Size = new Size(30, 15);
             lblMuestraPDF.TabIndex = 0;
             lblMuestraPDF.Text = "hola";
             // 
             // btnGenerarPDF
             // 
-            btnGenerarPDF.Location = new Point(512, 367);
+            btnGenerarPDF.BackColor = Color.FromArgb(68, 149, 255);
+            btnGenerarPDF.Location = new Point(359, 383);
+            btnGenerarPDF.Margin = new Padding(2, 2, 2, 2);
             btnGenerarPDF.Name = "btnGenerarPDF";
-            btnGenerarPDF.Size = new Size(178, 34);
+            btnGenerarPDF.Size = new Size(125, 24);
             btnGenerarPDF.TabIndex = 1;
             btnGenerarPDF.Text = "Generar PDF";
-            btnGenerarPDF.UseVisualStyleBackColor = true;
+            btnGenerarPDF.UseVisualStyleBackColor = false;
             btnGenerarPDF.Click += btnGenerarPDF_Click;
             // 
             // FormMostrarReporte
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(702, 488);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(800, 447);
             Controls.Add(btnGenerarPDF);
             Controls.Add(lblMuestraPDF);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2, 2, 2, 2);
+            MaximizeBox = false;
             Name = "FormMostrarReporte";
             Text = "FormMostrarReporte";
             Load += FormMostrarReporte_Load;

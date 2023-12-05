@@ -132,4 +132,48 @@
   <metadata name="CreditosRequeridos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PromedioRequerido.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Correlatividades.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CreditosRequeridos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAB
+        AAD///8A/P7/ALm5uQB0dHQA4+PjAIiIiAChoaEA1dXVAG5ubgDb29sA4u/9AI7A9wBjqPQAdLH1AL/b
+        +gD9/v8At7e3AA8PDwB3d3cALy8vAE5OTgBdXV0AHh4eAOHg3wDg7/4ATJvyAD2T8QBvrvUAYqf0ADmQ
+        8QCiy/gA+fn5AHZ2dgANDQ0ABgYGAAgICAAUFBQAmJiYAIS69gBGl/IA4e78ALbW+QBurvUA7PT9ANTU
+        1ACKiooANzc3AAEBAQAFBQUASUlJAJWVlQDo6OgAa6z2AHay9QDH4PsAm8f4AJ3I+ACcyPgAnsn4AO72
+        /gCfn58AHBwcABMTEwADAwMAFhYWACUlJQDMzMwAbq/3AHiz9QCPwPcAQZXyADON8QA4kPEA4O79APHx
+        8QCsrKwALS0tAAAAAAACAgIAQ0NDAMHBwQD4+PgAa6z1AHey9QD2+v4A7fX+APH3/gCq0PkAO5HxAObm
+        5gA/Pz8AJiYmABgYGAAkJCQAX19fALbX+gDg7vwApKSkABsaGgC2tbUAQkFAAGhnZgCbm5oAHBwbANLS
+        0gBysvkAfbf4ALjX+gBBlfEA4e79ANDV2wC3u78A5OzzAKe1xAC2w9AA3ubuALK2ugDk6OwAt8vgALDB
+        1QD5+fgA7PX/AMzj/QD3+/8As9X7ANDm/wC01voAnsr7ALHU/ACPwvgAocz7AM/j+gCWlJEApKOiAPPz
+        8wDDw8MA39/fAN3d3AC2tLMA8/LyAKjP+gC92voAwd36ANPn/ACfyvkAdrP2AMHb+ACbmZgAycnJAKWl
+        pQDu7u4Ara2tAGpqagDZ2dkA5O/6AJ+72ADn7/gA5/H8AOrx+QDU4O0AwM7dAN/p8wDb2toA9vb2APv7
+        +wDd3d0A7+/vAMLCwgDk5OMAiYiHALi3twC1tbQAnZ2dAKalpQCioaAApaSkAKenpwCpqakApqamAKKi
+        ogDc3NwAxsbGAMDAwACwsLAAvb29AKqqqgCxsbEAtLS0ALOzswC2trYA/v7+AP39/QAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAvgAAAL6+AL++AAC+v7+/ALS1tlC3uFC5ukK7vL28sJaoqaqrrK2ur7CxsmGVlbOWmpucnZ6f
+        oKGio6SlpqcQlleMjY6PkJGSk5QflZaXmJl8fX5/gIGCg4SFhoeIiYqLbm9wcXJzdHV2d3gAAHl6e2Fi
+        Y2RlZmdoaWoAAABrbG1ZWltcXT1eUVJEAAAAX1hgSktMTU5PUFFSU1RVVldYSTw9Pi8/QEFCQ0RFGkZH
+        SEksLS4vMDEyMzQ1Njc4OTo7HyAhIiMkJQAmJygAACkqKxAREhMUFRYXGBkaGxwdHgACAwQFBgcICQAK
+        CwwNDg8AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
 </root>

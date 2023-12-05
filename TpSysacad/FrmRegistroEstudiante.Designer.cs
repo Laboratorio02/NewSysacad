@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroEstudiante));
             label1 = new Label();
             textNombre = new TextBox();
             textApellido = new TextBox();
@@ -35,16 +36,16 @@
             textDireccion = new TextBox();
             textTelefono = new TextBox();
             textEmail = new TextBox();
-            btnRegistro = new Button();
             RbtnCambiarcontrasenia = new RadioButton();
             btnVolver = new Button();
+            btnRegistro = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(262, 35);
+            label1.Location = new Point(176, 32);
             label1.Name = "label1";
             label1.Size = new Size(144, 21);
             label1.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(284, 95);
+            textNombre.Location = new Point(200, 95);
             textNombre.Name = "textNombre";
             textNombre.PlaceholderText = "Nombre";
             textNombre.Size = new Size(100, 23);
@@ -60,7 +61,7 @@
             // 
             // textApellido
             // 
-            textApellido.Location = new Point(284, 124);
+            textApellido.Location = new Point(200, 136);
             textApellido.Name = "textApellido";
             textApellido.PlaceholderText = "Apellido";
             textApellido.Size = new Size(100, 23);
@@ -68,7 +69,7 @@
             // 
             // textDni
             // 
-            textDni.Location = new Point(284, 165);
+            textDni.Location = new Point(200, 178);
             textDni.Name = "textDni";
             textDni.PlaceholderText = "DNI";
             textDni.Size = new Size(100, 23);
@@ -76,7 +77,7 @@
             // 
             // textDireccion
             // 
-            textDireccion.Location = new Point(284, 207);
+            textDireccion.Location = new Point(200, 216);
             textDireccion.Name = "textDireccion";
             textDireccion.PlaceholderText = "Direccion";
             textDireccion.Size = new Size(100, 23);
@@ -84,7 +85,7 @@
             // 
             // textTelefono
             // 
-            textTelefono.Location = new Point(284, 245);
+            textTelefono.Location = new Point(200, 259);
             textTelefono.Name = "textTelefono";
             textTelefono.PlaceholderText = "Telefono";
             textTelefono.Size = new Size(100, 23);
@@ -92,48 +93,55 @@
             // 
             // textEmail
             // 
-            textEmail.Location = new Point(284, 288);
+            textEmail.Location = new Point(200, 324);
             textEmail.Name = "textEmail";
             textEmail.PlaceholderText = "Email";
-            textEmail.Size = new Size(100, 23);
+            textEmail.Size = new Size(153, 23);
             textEmail.TabIndex = 6;
-            // 
-            // btnRegistro
-            // 
-            btnRegistro.Location = new Point(565, 351);
-            btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(75, 23);
-            btnRegistro.TabIndex = 7;
-            btnRegistro.Text = "Registrar";
-            btnRegistro.UseVisualStyleBackColor = true;
-            btnRegistro.Click += BtnRegistro_Click;
             // 
             // RbtnCambiarcontrasenia
             // 
             RbtnCambiarcontrasenia.AutoSize = true;
-            RbtnCambiarcontrasenia.Location = new Point(451, 328);
+            RbtnCambiarcontrasenia.BackColor = Color.FromArgb(68, 149, 255);
+            RbtnCambiarcontrasenia.Cursor = Cursors.Hand;
+            RbtnCambiarcontrasenia.Location = new Point(344, 286);
             RbtnCambiarcontrasenia.Name = "RbtnCambiarcontrasenia";
             RbtnCambiarcontrasenia.Size = new Size(122, 19);
             RbtnCambiarcontrasenia.TabIndex = 9;
             RbtnCambiarcontrasenia.TabStop = true;
             RbtnCambiarcontrasenia.Text = "Cambiar Contraña";
-            RbtnCambiarcontrasenia.UseVisualStyleBackColor = true;
+            RbtnCambiarcontrasenia.UseVisualStyleBackColor = false;
             RbtnCambiarcontrasenia.CheckedChanged += RbtnCambiarcontrasenia_CheckedChanged;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(146, 351);
+            btnVolver.BackColor = Color.FromArgb(68, 149, 255);
+            btnVolver.Cursor = Cursors.Hand;
+            btnVolver.Location = new Point(97, 326);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(75, 23);
             btnVolver.TabIndex = 10;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
+            // 
+            // btnRegistro
+            // 
+            btnRegistro.BackColor = Color.FromArgb(128, 255, 128);
+            btnRegistro.Cursor = Cursors.Hand;
+            btnRegistro.Location = new Point(391, 326);
+            btnRegistro.Name = "btnRegistro";
+            btnRegistro.Size = new Size(75, 23);
+            btnRegistro.TabIndex = 7;
+            btnRegistro.Text = "Registrar";
+            btnRegistro.UseVisualStyleBackColor = false;
+            btnRegistro.Click += BtnRegistro_Click;
             // 
             // FrmRegistroEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(btnVolver);
             Controls.Add(RbtnCambiarcontrasenia);
@@ -145,6 +153,7 @@
             Controls.Add(textApellido);
             Controls.Add(textNombre);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmRegistroEstudiante";
             Text = "FrmRegistroEstudiante";
             ResumeLayout(false);
@@ -160,8 +169,8 @@
         private TextBox textDireccion;
         private TextBox textTelefono;
         private TextBox textEmail;
-        private Button btnRegistro;
         private RadioButton RbtnCambiarcontrasenia;
         private Button btnVolver;
+        private Button btnRegistro;
     }
 }

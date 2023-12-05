@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionarRequisitosAcademics));
             dataGridView1 = new DataGridView();
+            Codigo = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            PromedioRequerido = new DataGridViewTextBoxColumn();
+            Correlatividades = new DataGridViewTextBoxColumn();
+            CreditosRequeridos = new DataGridViewTextBoxColumn();
             lblListaVacia = new Label();
             btnSalir = new Button();
             btnEditarPromedio = new Button();
@@ -39,11 +45,6 @@
             txtNuevoCredito = new TextBox();
             btnGuardarCredito = new Button();
             btnGuardarCorrelativa = new Button();
-            Codigo = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            PromedioRequerido = new DataGridViewTextBoxColumn();
-            Correlatividades = new DataGridViewTextBoxColumn();
-            CreditosRequeridos = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -59,13 +60,48 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
+            // Codigo
+            // 
+            Codigo.HeaderText = "Codigo";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // PromedioRequerido
+            // 
+            PromedioRequerido.HeaderText = "PromedioRequerido";
+            PromedioRequerido.Name = "PromedioRequerido";
+            PromedioRequerido.ReadOnly = true;
+            PromedioRequerido.Width = 120;
+            // 
+            // Correlatividades
+            // 
+            Correlatividades.HeaderText = "CreditosRequeridos";
+            Correlatividades.Name = "Correlatividades";
+            Correlatividades.ReadOnly = true;
+            Correlatividades.Width = 120;
+            // 
+            // CreditosRequeridos
+            // 
+            CreditosRequeridos.HeaderText = "Correlatividades";
+            CreditosRequeridos.Name = "CreditosRequeridos";
+            CreditosRequeridos.ReadOnly = true;
+            CreditosRequeridos.Width = 1000;
+            // 
             // lblListaVacia
             // 
-            lblListaVacia.Location = new Point(128, 147);
+            lblListaVacia.Location = new Point(90, 106);
             lblListaVacia.Name = "lblListaVacia";
             lblListaVacia.Size = new Size(475, 88);
             lblListaVacia.TabIndex = 1;
             lblListaVacia.Text = "label1";
+            lblListaVacia.Visible = false;
+            lblListaVacia.Click += lblListaVacia_Click;
             // 
             // btnSalir
             // 
@@ -153,39 +189,6 @@
             btnGuardarCorrelativa.UseVisualStyleBackColor = true;
             btnGuardarCorrelativa.Click += btnGuardarCorrelativa_Click;
             // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "Codigo";
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // PromedioRequerido
-            // 
-            PromedioRequerido.HeaderText = "PromedioRequerido";
-            PromedioRequerido.Name = "PromedioRequerido";
-            PromedioRequerido.ReadOnly = true;
-            PromedioRequerido.Width = 120;
-            // 
-            // Correlatividades
-            // 
-            Correlatividades.HeaderText = "CreditosRequeridos";
-            Correlatividades.Name = "Correlatividades";
-            Correlatividades.ReadOnly = true;
-            Correlatividades.Width = 120;
-            // 
-            // CreditosRequeridos
-            // 
-            CreditosRequeridos.HeaderText = "Correlatividades";
-            CreditosRequeridos.Name = "CreditosRequeridos";
-            CreditosRequeridos.ReadOnly = true;
-            CreditosRequeridos.Width = 1000;
-            // 
             // FrmGestionarRequisitosAcademics
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,6 +205,9 @@
             Controls.Add(btnSalir);
             Controls.Add(lblListaVacia);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmGestionarRequisitosAcademics";
             Text = "FrmGestionarRequisitosAcademics";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

@@ -136,7 +136,7 @@
             // BtnEditarCursos
             // 
             BtnEditarCursos.BackColor = Color.Yellow;
-            BtnEditarCursos.Location = new Point(360, 337);
+            BtnEditarCursos.Location = new Point(364, 337);
             BtnEditarCursos.Name = "BtnEditarCursos";
             BtnEditarCursos.Size = new Size(118, 23);
             BtnEditarCursos.TabIndex = 8;
@@ -159,7 +159,7 @@
             // BtnAgregarCurso
             // 
             BtnAgregarCurso.BackColor = Color.FromArgb(128, 255, 128);
-            BtnAgregarCurso.Location = new Point(93, 339);
+            BtnAgregarCurso.Location = new Point(93, 337);
             BtnAgregarCurso.Name = "BtnAgregarCurso";
             BtnAgregarCurso.Size = new Size(127, 23);
             BtnAgregarCurso.TabIndex = 10;
@@ -192,8 +192,10 @@
             Controls.Add(btnInscripcion);
             Controls.Add(label1);
             Controls.Add(dataGridViewCursos);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmGestionarCursos";
             Text = "FrmGestionarCurso";
