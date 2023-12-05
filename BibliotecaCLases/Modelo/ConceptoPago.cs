@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 /// </summary>
 namespace BibliotecaCLases.Modelo
 {
-
     /// /// <summary>
     /// Constructor de la clase ConceptoPago.
     /// </summary>
@@ -20,19 +19,19 @@ namespace BibliotecaCLases.Modelo
     public class ConceptoPago
     {
         private string _nombre;
-        private decimal _montoPagar;
-        private decimal _montoPendiente;
-     
+        private int _montoAPagar;
+      
+        private int _montoPagado;
 
         /// <summary>
         /// Constructor de la clase ConceptoPago.
         /// </summary>
         /// <param name="nombre">Nombre del concepto de pago.</param>
         /// <param name="monto">Monto a pagar asociado al concepto.</param>
-        public ConceptoPago(string nombre, decimal monto)
+        public ConceptoPago(string nombre, int monto)
         {
             _nombre = nombre;
-            _montoPagar = monto;
+            _montoAPagar = monto;
         }
 
         /// <summary>
@@ -47,20 +46,16 @@ namespace BibliotecaCLases.Modelo
         /// <summary>
         /// Propiedad para obtener o establecer el monto a pagar asociado al concepto.
         /// </summary>
-        public decimal MontoPagar
+        public int MontoAPagar
         { 
-            get { return _montoPagar; } 
-            set { _montoPagar = value; }
+            get { return _montoAPagar; } 
+            set { _montoAPagar = value; }
         }
 
-
- 
-        /// <summary>
-        /// Método para actualizar el monto pendiente restando el monto ingresado.
-        /// </summary>
-        public void ActualizarMontoPendiente(decimal montoIngresado)
+        public int MontoPagado
         {
-            _montoPagar -= montoIngresado;
+            get { return _montoPagado; }
+            set { _montoPagado += value; }
         }
 
     }

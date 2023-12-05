@@ -73,9 +73,9 @@ namespace Formularios
             GestorCursos gestorCursos = new GestorCursos(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text, diaSeleccionado, horarioSeleccionado, aulaSeleccionada);
             if (gestorCursos.Validado)
             {
-                if (gestorCursos.verificarDatosExistentes())
+                if (!gestorCursos.verificarDatosExistentes())
                 {
-                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text, diaSeleccionado, horarioSeleccionado, aulaSeleccionada);
+                    gestorCursos.AgregarCurso(textNombre.Text, textCodigo.Text, textDescripcion.Text, textCupoMax.Text,diaSeleccionado, horarioSeleccionado, aulaSeleccionada);
                     MessageBox.Show("Curso agregado con éxito.");
                     if (_ownerForm != null)
                     {

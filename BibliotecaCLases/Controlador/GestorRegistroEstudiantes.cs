@@ -93,7 +93,7 @@ namespace BibliotecaCLases.Controlador
         /// <param name="telefono">El teléfono del estudiante.</param>
         /// <param name="debeCambiar">Indica si el estudiante debe cambiar la clave.</param>
         /// <returns>Un mensaje de éxito o error al registrar el estudiante.</returns>
-        public string RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, bool debeCambiar)
+        public string RegistrarEstudiante(string nombre, string apellido,  string dni, string correo, string direccion, string telefono, int debeCambiar)
         {
             
             return crudEstudiante.RegistrarEstudiante(nombre, apellido, dni, correo, direccion, telefono, debeCambiar);
@@ -103,20 +103,14 @@ namespace BibliotecaCLases.Controlador
         /// Obtiene un diccionario que contiene a los estudiantes registrados utilizando el objeto CrudEstudiante.
         /// </summary>
         /// <returns>Un diccionario que contiene a los estudiantes registrados, donde la clave es el número de legajo y el valor es el objeto Estudiante.</returns>
-        public Dictionary<int, Estudiante> ObtenerEstudiantesRegistrados()
-        {
-            return crudEstudiante.ObtenerEstudiantesRegistrados();
-        }
+   
 
         /// <summary>
         /// Modifica el nombre de un estudiante utilizando el objeto CrudEstudiante.
         /// </summary>
         /// <param name="estudiante">El número de legajo del estudiante que se desea modificar.</param>
         /// <param name="nuevoNombre">El nuevo nombre que se asignará al estudiante.</param>
-        public void ModificarEstudiante(int estudiante, string nuevoNombre)
-        {          
-            crudEstudiante.ModificarEstudiante(estudiante, nuevoNombre);
-        }
+      
         /// <summary>
         /// Elimina un estudiante utilizando el objeto CrudEstudiante.
         /// </summary>

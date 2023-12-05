@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Reflection.Metadata;
 using static BibliotecaCLases.Modelo.Curso;
 
 namespace BibliotecaCLases.Modelo
@@ -13,10 +15,14 @@ namespace BibliotecaCLases.Modelo
         private string _descripcion;
         private int _cupoMaximo;
         private int _cuposDisponibles;
-        private bool _activo;
+        private string _activo;
         private string _aula;
         private string _dia;
         private string _horario;
+        public string Correlativas { get; set; }
+        public string PromedioRequerido { get; set; }
+        public string CreditosRequerido { get; set; }
+
 
         /// <summary>
         /// Enumeración que define los días de la semana.
@@ -63,15 +69,19 @@ namespace BibliotecaCLases.Modelo
         /// <param name="dia">Día del curso.</param>
         /// <param name="horario">Horario del curso.</param>
         /// <param name="aula">Aula del curso.</param>
-        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
+        public Curso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula, string correlativa, string promedioRequerido, string creditoRequerido)
         {
             _nombre = nombre;
             _codigo = codigo;
             _descripcion = descripcion;
-            _activo = true;
+            _activo = "1";
             _aula = aula;
             _horario = horario;
             _dia = dia;
+            Correlativas = correlativa;
+            PromedioRequerido = promedioRequerido;
+            CreditosRequerido = creditoRequerido;
+
 
             if (int.TryParse(cupoMaximo, out int cupoMaximoValor))
             {
@@ -140,7 +150,7 @@ namespace BibliotecaCLases.Modelo
         /// <summary>
         /// Propiedad que obtiene o establece el estado activo o inactivo del curso.
         /// </summary>
-        public bool Activo
+        public string Activo
         {
             get { return _activo; }
             set { _activo = value; }
@@ -171,6 +181,25 @@ namespace BibliotecaCLases.Modelo
         {
             get { return _aula; }
             set { _aula = value; }
+        }
+
+        public object Cupomaximo { get; set; }
+
+        public void AgregarCorrelativa(string nombre)
+        {
+            Correlativas = string.IsNullOrEmpty(Correlativas)? nombre: Correlativas + "," + nombre;           
+        }
+
+        public void EstablecerPromedioRequerido(string promedio)
+        {
+            PromedioRequerido = promedio;
+
+
+        }
+
+        public void EstablecerCreditosRequeridos(string creditos)
+        {
+            CreditosRequerido = creditos;
         }
     }
 }

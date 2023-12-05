@@ -20,8 +20,6 @@ namespace Formularios
         private PagoPresentador _presentador;
 
         private Usuario _usuario;
-      
-
         public FrmPago(Usuario usuario)
         {
             InitializeComponent();
@@ -36,6 +34,8 @@ namespace Formularios
 
         }
 
+
+
         public event EventHandler MetodoPagoSeleccionado
         {
             add { CmboxMetodoPago.SelectedIndexChanged += value; }
@@ -48,13 +48,15 @@ namespace Formularios
             remove { btnPagar.Click -= value; }
         }
 
+
+
         public void MostrarConceptosPagoPendientes(List<ConceptoPago> conceptosPago)
         {
             dtgvConceptoPago.Rows.Clear();
-       
+
             foreach (var concepto in conceptosPago)
             {
-                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.MontoPagar, "");
+                dtgvConceptoPago.Rows.Add(concepto.Nombre, concepto.MontoAPagar, "");
             }
 
         }
@@ -73,7 +75,7 @@ namespace Formularios
             MessageBox.Show(comprobante, "Comprobante de Pago", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void MostrarTotalPagar(decimal total)
+        public void MostrarTotalPagar(int total)
         {
             // Lógica para mostrar el total a pagar en tu formulario
             // Por ejemplo, podrías actualizar un label con el total
@@ -82,7 +84,7 @@ namespace Formularios
         {
             if (CmboxMetodoPago.SelectedItem != null)
             {
-                
+
                 return CmboxMetodoPago.SelectedItem.ToString();
             }
 
@@ -90,7 +92,7 @@ namespace Formularios
         }
 
         public void MostrarCamposTarjetaCredito()
-        {     
+        {
             TbxNumeroTarjeta.Visible = true;
             TbxNombreTitular.Visible = true;
             TbxFechaVencimiento.Visible = true;
@@ -135,10 +137,9 @@ namespace Formularios
             return TbxCvv.Text;
         }
 
- 
-        public List<decimal> ObtenerValoresCelda()
+        public List<int> ObtenerValoresEditados(List<int> montosIngresados)
         {
-            List<decimal> valores = new List<decimal>();
+            List<int> valores = new List<int>();
 
             foreach (DataGridViewRow row in dtgvConceptoPago.Rows)
             {
@@ -146,14 +147,20 @@ namespace Formularios
 
                 if (cellValue != null && !string.IsNullOrWhiteSpace(cellValue.ToString()))
                 {
-                    if (decimal.TryParse(cellValue.ToString(), out decimal valorCelda))
+                    if (int.TryParse(cellValue.ToString(), out int valorCelda) && valorCelda >= 0)
                     {
                         valores.Add(valorCelda);
                     }
                     else
                     {
-                        // Manejo de error, si es necesario
+                        MessageBox.Show(this, "Ingrese un número válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return new List<int>();
                     }
+                }
+                else
+                {
+                    
+                    valores.Add(0);
                 }
             }
 
@@ -174,8 +181,8 @@ namespace Formularios
         }
         public void RecargarPrograma()
         {
-            
-            FrmPago frmPago = new FrmPago(_usuario); 
+
+            FrmPago frmPago = new FrmPago(_usuario);
             frmPago.Show();
             this.Close();
         }

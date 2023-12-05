@@ -1,4 +1,5 @@
-﻿using BibliotecaCLases.Modelo;
+﻿using BibliotecaCLases.DataBase;
+using BibliotecaCLases.Modelo;
 using BibliotecaCLases.Utilidades;
 
 
@@ -10,20 +11,22 @@ namespace BibliotecaCLases.Controlador
     public class CrudCurso
     {
         Serializador serializador = new Serializador();
-        private Dictionary<int, Curso> dictCursos;
+        private List<Curso> listaCursos;
         private string _path;
-
+        private GestionListasEspera _gestionListasEspera;
+        DBCursos dBCurso = new DBCursos();
+        DBCursosInscriptos _dBCursosInscriptos = new DBCursosInscriptos();
         /// <summary>
         /// Constructor de la clase CrudCurso.
         /// </summary>
         public CrudCurso()
         {
-            _path = PathManager.ObtenerRuta("Data", "DictCurso.json");
-            dictCursos = serializador.LeerJson<Dictionary<int, Curso>>(_path);
+            listaCursos = dBCurso.ObtenerTodosLosCursos();
+            _gestionListasEspera = new GestionListasEspera();
         }
 
         /// <summary>
-        /// Agrega un nuevo curso al diccionario de cursos.
+        /// Agrega un nuevo curso a la lista de cursos.
         /// </summary>
         /// <param name="nombre">Nombre del curso.</param>
         /// <param name="codigo">Código del curso.</param>
@@ -34,18 +37,14 @@ namespace BibliotecaCLases.Controlador
         /// <param name="aula">Aula del curso.</param>
         public void AgregarCurso(string nombre, string codigo, string descripcion, string cupoMaximo, string dia, string horario, string aula)
         {
-            int.TryParse(codigo, out int codigoCurso);
-            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, dia, horario, aula);
+            _gestionListasEspera.AgregarCurso(codigo);
+            Curso nuevoCurso = new Curso(nombre, codigo, descripcion, cupoMaximo, dia, horario, aula, "", "6", "0");
 
-            if (dictCursos != null)
-            {
-                dictCursos.Add(codigoCurso, nuevoCurso);
-                Serializador.ActualizarJson(nuevoCurso, codigoCurso, _path);
-            }
+            dBCurso.Guardar(nuevoCurso);
         }
 
         /// <summary>
-        /// Edita un curso existente en el diccionario de cursos.
+        /// Edita un curso existente en la lista de cursos.
         /// </summary>
         /// <param name="codigo">Código del curso a editar.</param>
         /// <param name="nuevoCodigo">Nuevo código del curso.</param>
@@ -53,39 +52,24 @@ namespace BibliotecaCLases.Controlador
         /// <param name="nuevaDescripcion">Nueva descripción del curso.</param>
         /// <param name="nuevoCupoMaximo">Nuevo cupo máximo del curso.</param>
         /// <returns>Un mensaje que indica si la edición fue exitosa o si ocurrió un error.</returns>
-        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo)
+        public string EditarCurso(string codigo, string nuevoCodigo, string nuevoNombre, string nuevaDescripcion, string nuevoCupoMaximo, int antiguoCuposDispónibles, int antiguoCuposMaximo)
         {
             int.TryParse(codigo, out int codigoCurso);
             int.TryParse(nuevoCodigo, out int nuevoCodigoCurso);
+            int.TryParse(nuevoCupoMaximo, out int cupoMaximoNuevo);
 
             try
             {
-                if (dictCursos.ContainsKey(codigoCurso))
+                int nuevoCuposDisponibles = ValidoCuposDisponibles(antiguoCuposMaximo, cupoMaximoNuevo, antiguoCuposDispónibles);
+                if (dBCurso.ModificarCurso(nuevoNombre, nuevaDescripcion, nuevoCupoMaximo, codigoCurso, nuevoCodigoCurso, nuevoCuposDisponibles) && _gestionListasEspera.ActualizarCodigoCurso(codigo,nuevoCodigo))
                 {
-                    Curso cursoExistente = dictCursos[codigoCurso];
 
-                    if (codigoCurso != nuevoCodigoCurso)
-                    {
-                        dictCursos.Remove(codigoCurso);
-                    }
-
-                    cursoExistente.Codigo = nuevoCodigo;
-                    cursoExistente.Nombre = nuevoNombre;
-                    cursoExistente.Descripcion = nuevaDescripcion;
-                    cursoExistente.CupoMaximo = int.Parse(nuevoCupoMaximo);
-                    if (cursoExistente.CuposDisponibles > cursoExistente.CupoMaximo)
-                    {
-                        cursoExistente.CuposDisponibles = int.Parse(nuevoCupoMaximo);
-                    }
-
-                    dictCursos[nuevoCodigoCurso] = cursoExistente;
-
-                    serializador.ActualizarJson(dictCursos, _path);
                     return "Se modificó correctamente";
                 }
+
                 else
                 {
-                    return "El curso no existe en el diccionario.";
+                    return "El curso no existe en la lista.";
                 }
             }
             catch (Exception ex)
@@ -94,8 +78,26 @@ namespace BibliotecaCLases.Controlador
             }
         }
 
+        public int ValidoCuposDisponibles(int cuposMaximosAntiguos, int nuevosCuposMaximos, int cuposDisponibles)
+        {
+            // Calcular la diferencia entre los cupos máximos antiguos y nuevos
+            int diferenciaCupos = cuposMaximosAntiguos - nuevosCuposMaximos;
+
+            // Calcular los nuevos cupos disponibles
+            int nuevosCuposDisponibles = cuposDisponibles - diferenciaCupos;
+
+            // Verificar que los nuevos cupos disponibles no sean negativos
+            if (nuevosCuposDisponibles < 0)
+            {
+                // Si se vuelven negativos, ajustar a cero (no permitir cupos disponibles negativos)
+                nuevosCuposDisponibles = 0;
+            }
+
+            return nuevosCuposDisponibles;
+        }
+
         /// <summary>
-        /// Elimina un curso de forma lógica, marcándolo como inactivo en el diccionario de cursos.
+        /// Elimina un curso de forma lógica, marcándolo como inactivo en la lista de cursos.
         /// </summary>
         /// <param name="curso">El curso a eliminar.</param>
         /// <returns>Un mensaje que indica si la eliminación fue exitosa o si ocurrió un error.</returns>
@@ -103,38 +105,15 @@ namespace BibliotecaCLases.Controlador
         {
             int.TryParse(curso.Codigo, out int codigoCurso);
 
-            if (dictCursos.ContainsKey(codigoCurso))
+            if (dBCurso.BorrarCurso(codigoCurso))
             {
-                Curso cursoAEliminar = dictCursos[codigoCurso];
-
-                cursoAEliminar.Activo = false;
-
-                serializador.ActualizarJson(dictCursos, _path);
 
                 return "Se realizó la eliminación lógica del curso";
             }
             else
             {
-                return "El curso no existe en el diccionario.";
+                return "El curso no existe en la lista.";
             }
-        }
-
-        /// <summary>
-        /// Verifica si un código de curso existe en el diccionario de cursos.
-        /// </summary>
-        /// <param name="codigo">El código de curso a verificar.</param>
-        /// <returns>1 si el código de curso existe, 0 si no existe.</returns>
-        public int VerificarCodigoCurso(string codigo)
-        {
-            if (dictCursos != null)
-            {
-                if (dictCursos.Any(kv => kv.Value.Codigo == codigo))
-                {
-                    return 1;
-                }
-            }
-
-            return 0;
         }
 
         /// <summary>
@@ -142,20 +121,22 @@ namespace BibliotecaCLases.Controlador
         /// </summary>
         /// <param name="codigo">El código del curso en el que inscribir al estudiante.</param>
         /// <returns>Un mensaje que indica si la inscripción fue exitosa o si no hay cupos disponibles.</returns>
-        public string InscribirEstudianteEnCurso(string codigo)
+        public string InscribirEstudianteEnCurso(string codigo, int legajo)
         {
-            if (dictCursos != null)
+            if (listaCursos != null)
             {
                 int.TryParse(codigo, out int codigoCurso);
-                if (dictCursos.ContainsKey(codigoCurso))
+                if (dBCurso.VerificaCodigo(codigo))
                 {
-                    Curso curso = dictCursos[codigoCurso];
+                    Curso curso = dBCurso.TraePorCodigo(codigo);
 
                     if (curso.CuposDisponibles > 0)
                     {
                         curso.CuposDisponibles--;
-                        serializador.ActualizarJson(dictCursos, _path);
-                        return "Inscripción exitosa.";
+                        if (_dBCursosInscriptos.AgregarCursosInscriptos(codigoCurso, legajo))
+                        {
+                            return "Inscripción exitosa.";
+                        }
                     }
                     else
                     {
@@ -164,23 +145,23 @@ namespace BibliotecaCLases.Controlador
                 }
                 else
                 {
-                    return "El curso no existe en el diccionario.";
+                    return "El curso no existe en la lista.";
                 }
             }
             else
             {
                 return "No se encontraron cursos.";
             }
+            return "";
         }
 
         /// <summary>
-        /// Obtiene el diccionario de cursos completo.
+        /// Obtiene la lista de cursos completa.
         /// </summary>
-        /// <returns>El diccionario de cursos.</returns>
-        public Dictionary<int, Curso> ObtenerDictCursos()
+        /// <returns>La lista de cursos.</returns>
+        public List<Curso> ObtenerListaCursos()
         {
-            dictCursos = serializador.LeerJson<Dictionary<int, Curso>>(_path);
-            return dictCursos;
+            return dBCurso.ObtenerTodosLosCursos();
         }
 
         /// <summary>
@@ -190,17 +171,52 @@ namespace BibliotecaCLases.Controlador
         /// <returns>El curso correspondiente o un nuevo objeto Curso si no se encuentra.</returns>
         public Curso ObtenerCursoPorCodigo(string codigo)
         {
-            int.TryParse(codigo, out int codigoCurso);
-
-            if (dictCursos.ContainsKey(codigoCurso))
-            {
-                return dictCursos[codigoCurso];
-            }
-            else
-            {
-                return new Curso("", "", "", "", "", "", "");
-            }
+            return dBCurso.TraePorCodigo(codigo);
         }
+        public bool AgregarCorrelativa(string codigoCurso, string nombre)
+        {
+            bool valid = false;
+            Curso curso = ObtenerCursoPorCodigo(codigoCurso);
+            if (curso != null)
+            {
+
+                curso.AgregarCorrelativa(nombre);
+                valid = ActualizarListaCursos(curso);
+            }
+            return valid;
+        }
+
+        public bool EstablecerPromedioRequerido(string codigoCurso, string promedio)
+        {
+            bool valid = false;
+            Curso curso = ObtenerCursoPorCodigo(codigoCurso);
+            if (curso != null)
+            {
+                curso.EstablecerPromedioRequerido(promedio);
+                valid = ActualizarListaCursos(curso);
+            }
+            return valid;
+        }
+
+        public bool EstablecerCreditosRequeridos(string codigoCurso, string creditos)
+        {
+            bool valid = false;
+            Curso curso = ObtenerCursoPorCodigo(codigoCurso);
+            if (curso != null)
+            {
+                curso.EstablecerCreditosRequeridos(creditos);
+                valid = ActualizarListaCursos(curso);
+
+            }
+            return valid;
+        }
+
+        private bool ActualizarListaCursos(Curso cursoModificado)
+        {
+            return dBCurso.ModificarCorrePromeCredi(cursoModificado);
+        }
+
+
 
         /// <summary>
         /// Propiedad para obtener o establecer la ruta del archivo JSON de datos.

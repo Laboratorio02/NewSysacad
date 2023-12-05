@@ -1,5 +1,6 @@
 using BibliotecaCLases.Controlador;
 using BibliotecaCLases.Modelo;
+using System.Configuration;
 
 namespace Formularios
 
@@ -15,58 +16,59 @@ namespace Formularios
         {
             string dni = textUsuario.Text; // de momento se usa el dni de usuario
             string contraseña = textContraseña.Text;
-            bool verificado = false;
-
-
-            ControlLogin controlLogin = new();
-            bool existeUsuarios = controlLogin.ExisteUsuario;
-
-            if (existeUsuarios)
+            ControlLogin controlLogin = new ControlLogin();
+            if (controlLogin.AutenticarUsuario(dni) && controlLogin.AutenticarContraseña(contraseña))
             {
 
-                verificado = controlLogin.AutenticarUsuario(dni, contraseña);
-                if (verificado)
+                Usuario usuarioActual = controlLogin.GetUsuario;
+
+                FormPanelUsuario frmPanelUsuario = new(usuarioActual);
+
+                frmPanelUsuario.FormClosed += (sender, args) =>
                 {
-                    Usuario usuarioActual = controlLogin.GetUsuario;
-                    FormPanelUsuario frmPanelUsuario = new(usuarioActual);
+                    this.Close();
+                };
+                frmPanelUsuario.Show();
 
-                    frmPanelUsuario.FormClosed += (sender, args) =>
-                    {
-                        this.Close();
-                    };
-                    frmPanelUsuario.Show();
+                this.Hide();
 
-                    this.Hide();
-
-                }
-
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña Incorrecta");
-                    textUsuario.Text = string.Empty;
-                    textContraseña.Text = string.Empty;
-
-                }
             }
+
             else
             {
-                MessageBox.Show("No se puede acceder en estos momentos");
+                MessageBox.Show("Usuario o contraseña Incorrecta");
+                textUsuario.Text = string.Empty;
+                textContraseña.Text = string.Empty;
+
             }
 
         }
 
-        private void BtnAdmin_Click(object sender, EventArgs e)
+
+        private void BtnAdministrador_Click(object sender, EventArgs e)
         {
-            textUsuario.Text = "44000000";
-            textContraseña.Text = "44000000";
+            string usuario = ConfigurationManager.AppSettings["administradorUsuario"]!;
+            string password = ConfigurationManager.AppSettings["administradorPassword"]!;
+            textUsuario.Text = usuario;
+            textContraseña.Text = password;
         }
 
-        private void BtnEstudiante_Click(object sender, EventArgs e)
+        private void BtnEstudiante_Click_1(object sender, EventArgs e)
         {
-            textUsuario.Text = "12345678";
-            textContraseña.Text = "$Ide*!3";
+            string usuario = ConfigurationManager.AppSettings["estudianteUsuario"]!;
+            string password = ConfigurationManager.AppSettings["estudiantePassword"]!;
+            textUsuario.Text = usuario;
+            textContraseña.Text = password;
+
+
         }
 
-
+        private void btnProfesor_Click(object sender, EventArgs e)
+        {
+            string usuario = ConfigurationManager.AppSettings["profesorUsuario"]!;
+            string password = ConfigurationManager.AppSettings["profesorPassword"]!;
+            textUsuario.Text = usuario;
+            textContraseña.Text = password;
+        }
     }
 }

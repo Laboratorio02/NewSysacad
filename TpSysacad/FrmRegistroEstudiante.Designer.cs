@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroEstudiante));
             label1 = new Label();
             textNombre = new TextBox();
             textApellido = new TextBox();
@@ -44,10 +43,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.LightSeaGreen;
-            label1.Location = new Point(199, 31);
+            label1.Location = new Point(262, 35);
             label1.Name = "label1";
             label1.Size = new Size(144, 21);
             label1.TabIndex = 0;
@@ -55,111 +52,89 @@
             // 
             // textNombre
             // 
-            textNombre.BackColor = Color.FromArgb(34, 192, 212);
-            textNombre.BorderStyle = BorderStyle.None;
-            textNombre.ForeColor = SystemColors.WindowText;
-            textNombre.Location = new Point(223, 84);
+            textNombre.Location = new Point(284, 95);
             textNombre.Name = "textNombre";
             textNombre.PlaceholderText = "Nombre";
-            textNombre.Size = new Size(88, 16);
+            textNombre.Size = new Size(100, 23);
             textNombre.TabIndex = 1;
             // 
             // textApellido
             // 
-            textApellido.BackColor = Color.FromArgb(34, 192, 212);
-            textApellido.BorderStyle = BorderStyle.None;
-            textApellido.Location = new Point(223, 129);
+            textApellido.Location = new Point(284, 124);
             textApellido.Name = "textApellido";
             textApellido.PlaceholderText = "Apellido";
-            textApellido.Size = new Size(88, 16);
+            textApellido.Size = new Size(100, 23);
             textApellido.TabIndex = 2;
             // 
             // textDni
             // 
-            textDni.BackColor = Color.FromArgb(34, 192, 212);
-            textDni.BorderStyle = BorderStyle.None;
-            textDni.Location = new Point(223, 176);
+            textDni.Location = new Point(284, 165);
             textDni.Name = "textDni";
             textDni.PlaceholderText = "DNI";
-            textDni.Size = new Size(88, 16);
+            textDni.Size = new Size(100, 23);
             textDni.TabIndex = 3;
             // 
             // textDireccion
             // 
-            textDireccion.BackColor = Color.FromArgb(34, 192, 212);
-            textDireccion.BorderStyle = BorderStyle.None;
-            textDireccion.Location = new Point(223, 221);
+            textDireccion.Location = new Point(284, 207);
             textDireccion.Name = "textDireccion";
             textDireccion.PlaceholderText = "Direccion";
-            textDireccion.Size = new Size(88, 16);
+            textDireccion.Size = new Size(100, 23);
             textDireccion.TabIndex = 4;
             // 
             // textTelefono
             // 
-            textTelefono.BackColor = Color.FromArgb(34, 192, 212);
-            textTelefono.BorderStyle = BorderStyle.None;
-            textTelefono.Location = new Point(223, 270);
+            textTelefono.Location = new Point(284, 245);
             textTelefono.Name = "textTelefono";
             textTelefono.PlaceholderText = "Telefono";
-            textTelefono.Size = new Size(88, 16);
+            textTelefono.Size = new Size(100, 23);
             textTelefono.TabIndex = 5;
             // 
             // textEmail
             // 
-            textEmail.BackColor = Color.FromArgb(34, 192, 212);
-            textEmail.BorderStyle = BorderStyle.None;
-            textEmail.Location = new Point(223, 330);
+            textEmail.Location = new Point(284, 288);
             textEmail.Name = "textEmail";
             textEmail.PlaceholderText = "Email";
-            textEmail.Size = new Size(88, 16);
+            textEmail.Size = new Size(100, 23);
             textEmail.TabIndex = 6;
             // 
             // btnRegistro
             // 
-            btnRegistro.BackColor = Color.FromArgb(222, 224, 239);
-            btnRegistro.FlatAppearance.BorderSize = 0;
-            btnRegistro.FlatStyle = FlatStyle.Flat;
-            btnRegistro.Location = new Point(608, 339);
+            btnRegistro.Location = new Point(565, 351);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(75, 23);
             btnRegistro.TabIndex = 7;
             btnRegistro.Text = "Registrar";
-            btnRegistro.UseVisualStyleBackColor = false;
+            btnRegistro.UseVisualStyleBackColor = true;
             btnRegistro.Click += BtnRegistro_Click;
             // 
             // RbtnCambiarcontrasenia
             // 
             RbtnCambiarcontrasenia.AutoSize = true;
-            RbtnCambiarcontrasenia.BackColor = Color.FromArgb(34, 192, 212);
-            RbtnCambiarcontrasenia.Location = new Point(223, 393);
+            RbtnCambiarcontrasenia.Location = new Point(451, 328);
             RbtnCambiarcontrasenia.Name = "RbtnCambiarcontrasenia";
             RbtnCambiarcontrasenia.Size = new Size(122, 19);
             RbtnCambiarcontrasenia.TabIndex = 9;
             RbtnCambiarcontrasenia.TabStop = true;
             RbtnCambiarcontrasenia.Text = "Cambiar Contraña";
-            RbtnCambiarcontrasenia.UseVisualStyleBackColor = false;
+            RbtnCambiarcontrasenia.UseVisualStyleBackColor = true;
             RbtnCambiarcontrasenia.CheckedChanged += RbtnCambiarcontrasenia_CheckedChanged;
             // 
             // btnVolver
             // 
-            btnVolver.BackColor = Color.FromArgb(255, 107, 187);
-            btnVolver.Cursor = Cursors.Hand;
-            btnVolver.FlatAppearance.BorderSize = 0;
-            btnVolver.FlatStyle = FlatStyle.Flat;
-            btnVolver.Location = new Point(56, 393);
+            btnVolver.Location = new Point(146, 351);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(76, 19);
+            btnVolver.Size = new Size(75, 23);
             btnVolver.TabIndex = 10;
             btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.UseVisualStyleBackColor = true;
             btnVolver.Click += btnVolver_Click;
             // 
             // FrmRegistroEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(808, 481);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnVolver);
             Controls.Add(RbtnCambiarcontrasenia);
             Controls.Add(btnRegistro);
@@ -170,7 +145,6 @@
             Controls.Add(textApellido);
             Controls.Add(textNombre);
             Controls.Add(label1);
-            MinimizeBox = false;
             Name = "FrmRegistroEstudiante";
             Text = "FrmRegistroEstudiante";
             ResumeLayout(false);

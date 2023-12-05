@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BibliotecaCLases.DataBase;
 using BibliotecaCLases.Modelo;
+using BibliotecaCLases.Utilidades;
 
 namespace Formularios
 {
@@ -57,20 +59,26 @@ namespace Formularios
             btnRegistrarEstudiante.Visible = false;
             btnConsultarHorario.Visible = false;
             btnRealizarPagos.Visible = false;
+            btnGestionarListasEspera.Visible = false;
+            btnGestionarRequisitos.Visible = false;
+            btnGestionarProfesor.Visible = false;
+            bttnGenerarReporte.Visible = false;
             if (usuario.TipoUsuario.ToString() == "Estudiante")
             {
                 btnInscripcionCurso.Visible = true;
                 btnConsultarHorario.Visible = true;
                 btnRealizarPagos.Visible = true;
-                labelUsaurio.Text = "Panel de estudiante";
+
             }
             else if (usuario.TipoUsuario.ToString() == "Administrador")
             {
                 btnRegistrarEstudiante.Visible = true;
                 btnGestionarCursos.Visible = true;
-                labelUsaurio.Text = "Panel de Administrador";
+                btnGestionarListasEspera.Visible = true;
+                btnGestionarRequisitos.Visible = true;
+                btnGestionarProfesor.Visible = true;
+                bttnGenerarReporte.Visible = true;
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -103,6 +111,43 @@ namespace Formularios
             };
 
             frmLogin.Show();
+            this.Hide();
+        }
+
+        private void btnGestionarListasEspera_Click(object sender, EventArgs e)
+        {
+
+            FrmGestionListaEspera gestionListasEsperaForm = new(_usuario);
+            gestionListasEsperaForm.Show();
+            this.Hide();
+
+        }
+
+        private void btnGestionarRequisitos_Click(object sender, EventArgs e)
+        {
+            FrmGestionarRequisitosAcademics frmGestionarRequisitosAcademics = new(_usuario);
+            frmGestionarRequisitosAcademics.Show();
+            this.Hide();
+        }
+
+        private void btnGestionarProfesor_Click(object sender, EventArgs e)
+        {
+            FrmGestionarProfesores frmGestionarProfesores = new(_usuario);
+            frmGestionarProfesores.Show();
+            this.Hide();
+        }
+
+        private void bttnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            FormGenerarReportes formGenerarReportes = new FormGenerarReportes(_usuario);
+            formGenerarReportes.Show();
+            this.Hide();
+        }
+
+        private void btnVerCursos_Click(object sender, EventArgs e)
+        {
+            FrmCursosAcargo frmAgregarCurso = new(_usuario);
+            frmAgregarCurso.Show();
             this.Hide();
         }
     }

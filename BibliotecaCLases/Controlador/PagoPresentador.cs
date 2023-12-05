@@ -17,52 +17,65 @@ namespace BibliotecaCLases.Controlador
             _usuario = usuario;
             _gestorPagoLogic = new GestorPagoLogic(usuario);
             _vista.MetodoPagoSeleccionado += Vista_MetodoPagoSeleccionado;
-            _vista.PagarClicked += Vista_PagarClicked;
-           
+            _vista.PagarClicked += Vista_PagarClicked;            
+            _vista.MostrarConceptosPagoPendientes(_gestorPagoLogic.ObtenerConceptosPagoPendientes(usuario.Legajo));
 
-
-            _vista.MostrarConceptosPagoPendientes(_gestorPagoLogic.ObtenerConceptosPagoPendientes());
 
             _vista.MostrarMetodosPago(_gestorPagoLogic.ObtenerMetodosPago());
         }
-
         private void Vista_PagarClicked(object sender, EventArgs e)
         {
             string metodoSeleccionado = _vista.ObtenerMetodoPagoSeleccionado();
             string numeroTarjeta = _vista.ObtenerNumeroTarjeta();
             string fechaVencimiento = _vista.ObtenerFechaVencimiento();
             string cvv = _vista.ObtenerCVV();
-            Vista_CeldaEditada();
-            bool pagoExitoso = _gestorPagoLogic.RealizarPago(_usuario, metodoSeleccionado, numeroTarjeta, fechaVencimiento, cvv);
+            bool seEvitoCelda = Vista_CeldaEditada();
 
-            if (pagoExitoso)
-            {              
-                string comprobante = _gestorPagoLogic.GenerarComprobante();
-                _vista.MostrarComprobantePago(comprobante);
-               
-                foreach ( string comprobanteObtenido in _gestorPagoLogic.ObtenerHistorialPagos())
-                {
-                    _vista.MostrarMensaje(comprobanteObtenido);
-                    ActualizarPrograma();
+            if (metodoSeleccionado != null)
+            {
+                if (seEvitoCelda)
+                {                   
+                    string mensaje= "";
+                    bool pagoExitoso = _gestorPagoLogic.RealizarPago(_usuario, metodoSeleccionado, numeroTarjeta, fechaVencimiento, cvv, out mensaje);
+                    if (mensaje != "")
+                    {
+                        _vista.MostrarMensaje(mensaje);
+
+
+                    }
+                    if (pagoExitoso)
+                    {
+                        string comprobante = _gestorPagoLogic.GenerarComprobante();                                        
+                        _vista.MostrarComprobantePago(comprobante);
+                        ActualizarPrograma();
+                    }
+                    else
+                    {
+                        _vista.MostrarMensaje("Error en la validación del pago. Por favor, verifique los datos e inténtelo nuevamente.");
+                    }
                 }
-
+                else
+                {
+                    _vista.MostrarMensaje("Error. Por favor, inténtelo nuevamente.");
+                }
             }
             else
-            {               
-                _vista.MostrarMensaje("Error en la validación del pago. Por favor, verifique los datos e inténtelo nuevamente.");
+            {
+                _vista.MostrarMensaje("Error: Seleccione un método de pago. Por favor, inténtelo nuevamente.");
             }
         }
 
-
-        private void Vista_CeldaEditada()
+        private bool Vista_CeldaEditada()
         {
-            List<decimal> valoresCelda = _vista.ObtenerValoresCelda();
-            _gestorPagoLogic.MontosIngresados = valoresCelda;
+            List<int> valoresCelda = _vista.ObtenerValoresEditados(_gestorPagoLogic.MontosIngresados);
 
-            foreach (decimal valorCelda in valoresCelda)
+            if (valoresCelda.Count > 0)
             {
-                _vista.MostrarMensaje(valorCelda.ToString());
+                _gestorPagoLogic.MontosIngresados = valoresCelda;
+                return true;
             }
+            return false;
+
 
         }
         private void Vista_MetodoPagoSeleccionado(object sender, EventArgs e)
@@ -82,8 +95,6 @@ namespace BibliotecaCLases.Controlador
                 case "Transferencia bancaria":
                     _vista.MostrarInformacionTransferenciaBancaria();
                     break;
-
-                // Agrega más casos según sea necesario
 
                 default:
                     // Manejo por defecto o lanzar una excepción si es necesario
