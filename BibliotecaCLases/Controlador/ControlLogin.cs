@@ -20,6 +20,7 @@ namespace BibliotecaCLases.Controlador
         private readonly List<Usuario> listaUsuarios;
         private string _path;
         private bool _existeUsuario;
+        private CrudNotificacion _crudNotificacion = new CrudNotificacion();
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase ControlLogin.
@@ -31,7 +32,12 @@ namespace BibliotecaCLases.Controlador
         /// </remarks>
         public ControlLogin()
         {
+            InicializarAsync();
+        }
 
+        private async void InicializarAsync()
+        {
+            await _crudNotificacion.enviar();
         }
 
         /// <summary>
@@ -50,10 +56,10 @@ namespace BibliotecaCLases.Controlador
             }
             else if (dBGeneric.AutenticarUsuario(dni, "Administrador"))
             {
-                
+
                 _usuario = dBAdministrador.VerificaDni(dni);
                 return true;
-                
+
             }
             else
             {
