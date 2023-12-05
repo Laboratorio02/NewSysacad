@@ -74,7 +74,7 @@
             dtgvConceptoPago.RowTemplate.Height = 25;
             dtgvConceptoPago.Size = new Size(344, 150);
             dtgvConceptoPago.TabIndex = 1;
-            dtgvConceptoPago.CellEndEdit += dtgvConceptoPago_CellEndEdit;
+
             // 
             // Nombre
             // 
@@ -95,13 +95,13 @@
             // 
             // CmboxMetodoPago
             // 
-            CmboxMetodoPago.BackColor = Color.Lime;
-            CmboxMetodoPago.Location = new Point(64, 254);
+            CmboxMetodoPago.BackColor = Color.RoyalBlue;
+            CmboxMetodoPago.Location = new Point(68, 254);
             CmboxMetodoPago.Name = "CmboxMetodoPago";
             CmboxMetodoPago.Size = new Size(184, 23);
             CmboxMetodoPago.TabIndex = 0;
             CmboxMetodoPago.Text = "Seleccionar método de pago";
-            CmboxMetodoPago.KeyPress += CmboxMetodoPago_KeyPress;
+           
             // 
             // TbxNumeroTarjeta
             // 
@@ -146,7 +146,7 @@
             CmboxCuota.Size = new Size(174, 23);
             CmboxCuota.TabIndex = 10;
             CmboxCuota.Text = "Seleccione cantidad cuota";
-            CmboxCuota.KeyPress += CmboxMetodoPago_KeyPress;
+           
             // 
             // btnPagar
             // 
@@ -158,7 +158,7 @@
             btnPagar.TabIndex = 11;
             btnPagar.Text = "Pagar";
             btnPagar.UseVisualStyleBackColor = false;
-            btnPagar.Click += btnPagar_Click;
+           
             // 
             // btnVolver
             // 
@@ -193,7 +193,7 @@
             MinimizeBox = false;
             Name = "FrmPago";
             Text = "FrmPago";
-            Load += FrmPago_Load;
+          
             ((System.ComponentModel.ISupportInitialize)dtgvConceptoPago).EndInit();
             ResumeLayout(false);
             PerformLayout();
